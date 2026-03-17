@@ -30,6 +30,7 @@ spec:
         envFrom:
         - configMapRef:
             name: photo
+        
 ---
 apiVersion: v1
 kind: Service
