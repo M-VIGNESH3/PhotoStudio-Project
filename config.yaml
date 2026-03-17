@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: photo
+  namespace: photo-ns
+data:
+ MONGODB_AUTH_URI: mongodb://service:27017/artgallery
+ MONGODB_FEEDBACK_URI: mongodb://service:27017/artgallery
+
