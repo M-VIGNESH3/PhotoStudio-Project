@@ -29,7 +29,7 @@ spec:
         - containerPort: 3000
         envFrom:
         - configMapRef:
-            name: config
+            name: photo
 ---
 apiVersion: v1
 kind: Service
