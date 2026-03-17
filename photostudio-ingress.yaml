@@ -2,7 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: photostudio-ingress
-  namespace: default
   annotations:
     haproxy.org/ssl-redirect: "false"
 spec:
