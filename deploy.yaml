@@ -18,12 +18,16 @@ spec:
       app: photo-app
 
   template:
-    containers:
-    - name: photo
-      image: vignesh8386/photostudio:v1.0.0
-      ports:
-      - containerPort: 3000
-      envFrom:
-      - configMapRef:
-        name: config
+    metadata: 
+      matchLabels:
+        app: photo-app
+    spec:
+      containers:
+      - name: photo
+        image: vignesh8386/photostudio:v1.0.0
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+          name: config
     
