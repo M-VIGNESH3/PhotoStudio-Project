@@ -22,7 +22,7 @@ spec:
     - name: photo
       image: vignesh8386/photostudio-dockerv1.1.0:latest
       ports:
-      - containerPorts: 3000
+      - containerPort: 3000
       envFrom:
       - configMapRef:
         name: config
