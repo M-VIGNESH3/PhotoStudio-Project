@@ -8,7 +8,7 @@ spec:
       app: photo-app
 
     ports:
-      - port: 80
-        targetPort: 3000
-        protocol: TCP
-      type: NodePort
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+    type: NodePort
