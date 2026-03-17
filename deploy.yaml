@@ -30,7 +30,19 @@ spec:
         envFrom:
         - configMapRef:
             name: config
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photo-service
+spec:
+  selector:
+    app: photo-app
+  ports:
+    - port: 3000
+      targetPort: 3000   # FIXED
+      nodePort: 30007    # OPTIONAL but recommended
+  type: NodePort
 
 ---
 apiVersion: apps/v1
