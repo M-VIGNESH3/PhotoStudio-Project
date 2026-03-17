@@ -29,7 +29,12 @@ spec:
         - containerPort: 3000
         envFrom:
         - configMapRef:
-            name: photo
+            name: photostartegy:
+      type: RollingUpdate
+      rollingupdate: 
+        maxUnavailable: 25%
+        maxSurge: 25%
+        
         
 ---
 apiVersion: v1
