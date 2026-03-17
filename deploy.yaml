@@ -1,1 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photo-app
+  labels: 
+    app: photo-app
+    
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
 
+  selector:
+    matchLabels:
+      app: photo-app
+
+  template:
+    containers:
+      - name: photo
+        image: vignesh8386/photostudio-dockerv1.1.0:latest
+        ports:
+        - containerPorts: 3000
+        envFrom:
+          - configMapRef:
+            name: config
+    
