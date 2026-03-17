@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photo-app
+  labels:
+    app: photo-app
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: photo-app
+  template:
+    metadata:
+      labels:
+        app: photo-app
+    spec:
+      containers:
+      - name: photo
+        image: vignesh8386/photostudio:v1.0.0
+        ports:
+        - containerPort: 3000
+        # Uncomment if you created the ConfigMap
+        envFrom:
+        - configMapRef:
+            name: photo-config
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photostudio-service
+  labels:
+    app: photo-app
+spec:
+  selector:
+    app: photo-app
+  ports:
+  - name: http
+    port: 80           # service port exposed inside the cluster
+    targetPort: 3000   # forwards to your container port
+  type: ClusterIP
