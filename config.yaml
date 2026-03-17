@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: photo
 data:
- MONGODB_AUTH_URI: mongodb://mongodb-service:27017/artgallery
- MONGODB_FEEDBACK_URI: mongodb://mongodb-service:27017/artgallery
-
+  MONGODB_AUTH_URI: mongodb://mongo:27017/artgallery
+  MONGODB_FEEDBACK_URI: mongodb://mongo:27017/artgallery
+  MONGODB_URI: mongodb://mongo:27017
