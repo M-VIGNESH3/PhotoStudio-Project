@@ -29,5 +29,5 @@ spec:
         - containerPort: 3000
         envFrom:
         - configMapRef:
-          name: config
+            name: config
     
