@@ -19,7 +19,7 @@ spec:
 
   template:
     metadata: 
-      matchLabels:
+      labels:
         app: photo-app
     spec:
       containers:
