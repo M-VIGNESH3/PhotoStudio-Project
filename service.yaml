@@ -4,8 +4,7 @@ metadata:
   name: photo-app
 spec:
   selector:
-    matchLabels:
-      app: photo-app
+    app: photo-app
 
     ports:
     - port: 80
