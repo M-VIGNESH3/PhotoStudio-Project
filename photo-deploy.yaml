@@ -54,4 +54,4 @@ spec:
   - name: http
     port: 80           # service port exposed inside the cluster
     targetPort: 3000   # forwards to your container port
-  type: ClusterIP
+  type: LoadBalancer
